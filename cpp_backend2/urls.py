@@ -6,5 +6,6 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     url(r'^api/glasnost/daily/$', 'api.views.glasnost_daily'),
+    url(r'^api/glasnost/monthly/$', 'api.views.glasnost_monthly'),
     url(r'^api/glasnost/yearly/$', 'api.views.glasnost_yearly'),
 )

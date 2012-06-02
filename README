@@ -22,7 +22,7 @@ XXX must be replaced by either: daily, weekly, monthly, yearly
 Parameters:
 start_date: only return measurements performed after start_date. The format must be YYYY-MM-DD HH:MM.
 end_date: only return measurements performed before end_date. The format must be YYYY-MM-DD HH:MM.
-source: return measurements with the specified source only.
+country_code: return measurements with the specified country_code only.
 destination: return measurements with the specified destination only.
 
 Example:

@@ -11,15 +11,15 @@ def glasnost_raw(request, model):
         kwargs['rangedate__gte'] = request.GET['start_date']
     if 'end_date' in request.GET.keys():
         kwargs['rangedate__lte'] = request.GET['end_date']
-    if 'source' in request.GET.keys():
-        kwargs['source'] = request.GET['source']
+    if 'country_code' in request.GET.keys():
+        kwargs['country_code'] = request.GET['country_code']
     if 'destination' in request.GET.keys():
         kwargs['destination'] = request.GET['destination']
 
     objects = model.objects.using('mlab').filter(**kwargs)
     json = simplejson.dumps( [{'counter': o.counter,
                                'rangedate': o.rangedate,
-                               'source': o.source,
+                               'country_code': o.country_code,
                                'destination': o.destination} for o in objects], cls=DjangoJSONEncoder)
     return HttpResponse(json, mimetype='application/json')
 
@@ -57,6 +57,6 @@ def glasnost_daily_mean(request, model = GlasnostDaily):
 
     json = simplejson.dumps( [{'mean': objects_means[i], 
                                'rangedate': objects[i].rangedate,
-                               'source': objects[i].source,
+                               'country_code': objects[i].country_code,
                                'destination': objects[i].destination} for i in range(len(objects))], cls=DjangoJSONEncoder)
     return HttpResponse(json, mimetype='application/json')

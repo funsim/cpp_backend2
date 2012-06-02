@@ -5,10 +5,6 @@ from django.http import HttpResponse
 from datetime import datetime, timedelta
 from dateutil import parser
 
-def glasnos_cmp(obj1, obj2):
-    # Annoyingly, due to missing functionality of django to support multi column primary indices we need to hack our object comparison function manually 
-    return obj1.rangedate == obj2.rangedate and obj1.counter == obj2.counter and obj1.destination == obj2.destination and obj1.source == obj2.source
-
 def glasnost_raw(request, model):
     kwargs = {}
     if 'start_date' in request.GET.keys():
@@ -51,7 +47,7 @@ def glasnost_daily_mean(request, model = GlasnostDaily):
         for i in range(int(request.GET['data_points'])):
             date = date - timedelta(days=int(request.GET['days_to_subtract']))
             try:
-                mean += GlasnostDaily.objects.using('mlab').filter(rangedate = date, destination = o.destination, source = o.source)[0].counter
+                mean += GlasnostDaily.objects.using('mlab').filter(rangedate = date, destination = o.destination, country_code = o.country_code)[0].counter
                 n += 1
             except IndexError:
                 pass

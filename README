@@ -3,8 +3,9 @@
 The installation assumes that the mlab database is set up corretly. This is described in the chokepoint wiki page. 
 Then the remaining steps are as follows:
 
-Open cpp_backend_cpp2/settings.py and change the database login and password
-Run make to create the django specific databases
+Install django as described in https://www.djangoproject.com/download/
+Open ./cpp_backend_cpp2/settings.py and change the database login and password
+Also change the database in ./Makefile and then run make to create the django specific databases
 
 A test server can the be run by:
 python manage.py runserver 

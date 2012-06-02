@@ -7,13 +7,13 @@ class GlasnostDaily(models.Model):
     counter = models.IntegerField(primary_key=True)
     rangedate = models.DateTimeField()
     destination = models.CharField(max_length=128)
-    source = models.CharField(max_length=128)
+    country_code = models.CharField(max_length=128)
 
     class Meta:
       db_table = 'glasnost_daily' 
 
     def __unicode__(self):
-        return self.destination + ' => ' + self.source + ' (' + unicode(self.counter) + ')'
+        return self.destination + ' => ' + self.country_code + ' (' + unicode(self.counter) + ')'
 
 # Create your models here.
 class GlasnostMonthly(models.Model):
@@ -22,13 +22,13 @@ class GlasnostMonthly(models.Model):
     counter = models.IntegerField(primary_key=True)
     rangedate = models.DateTimeField()
     destination = models.CharField(max_length=128)
-    source = models.CharField(max_length=128)
+    country_code = models.CharField(max_length=128)
 
     class Meta:
       db_table = 'glasnost_monthly' 
 
     def __unicode__(self):
-        return self.destination + ' => ' + self.source + ' (' + unicode(self.counter) + ')'
+        return self.destination + ' => ' + self.country_code + ' (' + unicode(self.counter) + ')'
 
 # Create your models here.
 class GlasnostYearly(models.Model):
@@ -37,10 +37,10 @@ class GlasnostYearly(models.Model):
     counter = models.IntegerField(primary_key=True)
     rangedate = models.DateTimeField()
     destination = models.CharField(max_length=128)
-    source = models.CharField(max_length=128)
+    country_code = models.CharField(max_length=128)
 
     class Meta:
       db_table = 'glasnost_yearly' 
 
     def __unicode__(self):
-        return self.destination + ' => ' + self.source + ' (' + unicode(self.counter) + ')'
+        return self.destination + ' => ' + self.country_code + ' (' + unicode(self.counter) + ')'

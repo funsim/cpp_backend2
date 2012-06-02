@@ -1,9 +1,10 @@
 
 API interface:
 
-Examples:
+=== Examples ===
 
-Daily/Weekly/Monthly/Yearly averaged data
+== Daily/Weekly/Monthly/Yearly averaged data ==
+URL:
 api/glasnost/XXX
 
 XXX must be replaced by either: daily, weekly, monthly, yearly
@@ -19,4 +20,13 @@ Example:
 api/glasnost/yearly/?start_date=2011-12-12%2012:12&end_date=2012-12-12%2012:12
 
 
+== Mean calculations ==
+URL:
+api/glasnost/daily/mean/
 
+Parameters:
+data_points: the number of past data points that will be used to compute the mean
+days_to_subtract: the distance of two data points in days
+date: the most recent date of the mean computation
+
+api/glasnost/daily/mean/?date=2011-01-30&data_points=6&days_to_subtract=7

@@ -1,7 +1,16 @@
+=== Installation ===
 
-API interface:
+The installation assumes that the mlab database is set up corretly. This is described in the chokepoint wiki page. 
+Then the remaining steps are as follows:
 
-=== Examples ===
+Open cpp_backend_cpp2/settings.py and change the database login and password
+Run make to create the django specific databases
+
+A test server can the be run by:
+python manage.py runserver 
+
+
+=== API interface ===
 
 == Daily/Weekly/Monthly/Yearly averaged data ==
 URL:
